@@ -18,6 +18,6 @@ runs:
         curl --header "Content-Type: application/json" \
         --request POST \
         --data '{"content":"${{ inputs.message }}"}' \
-        "https://twist.com/api/v3/integration_incoming/post_data?install_id=${{ inputs.install_id }}&install_token=${{ install.install_token }}"
+        "https://twist.com/api/v3/integration_incoming/post_data?install_id=${{ inputs.install_id }}&install_token=${{ inputs.install_token }}"
       
     
