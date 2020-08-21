@@ -1,0 +1,23 @@
+name: 'Twist Post'
+description: 'Post a message to Twist thread'
+inputs:
+  message:
+    description: 'Message to post'
+    required: true
+  install_id:
+    description: 'Twist thread integration install id'
+    required: true
+  install_token:
+    description: 'Twist thread integration install token'
+    required: true
+runs:
+  using: "composite"
+  steps: 
+    - shell: bash
+      run: |
+        curl --header "Content-Type: application/json" \
+        --request POST \
+        --data '{"content":"${{ inputs.message }}"}' \
+        "https://twist.com/api/v3/integration_incoming/post_data?install_id=${{ inputs.install_id }}&install_token=${{ install.install_token }}"
+      
+    
