@@ -12,7 +12,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      uses: Doist/GithubActionTwistPost@master
+      uses: Doist/twist-post-action@master
       with:
         message: "Dev branch has been updated"
         install_id: ${{ secrets.TWIST_INTEGRATION_INSTALL_ID }}
