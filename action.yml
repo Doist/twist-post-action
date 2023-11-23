@@ -17,7 +17,7 @@ runs:
       run: |
         curl --header "Content-Type: application/json" \
         --request POST \
-        --data '{"content":"${{ inputs.message }}"}' \
+        --data '{"content":"${{ toJson(inputs.message) }}"}' \
         "https://twist.com/api/v3/integration_incoming/post_data?install_id=${{ inputs.install_id }}&install_token=${{ inputs.install_token }}"
       
     
