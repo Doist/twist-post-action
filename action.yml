@@ -15,9 +15,12 @@ runs:
   steps: 
     - shell: bash
       run: |
+        JSON=$(jq -n --arg msg "$(cat << 'EOF'
+        ${{ inputs.message }}
+        EOF
+        )" '$msg')
+
         curl --header "Content-Type: application/json" \
         --request POST \
-        --data '{"content":${{ toJson(inputs.message) }}}' \
+        --data "{\"content\":${JSON}}" \
         "https://twist.com/api/v3/integration_incoming/post_data?install_id=${{ inputs.install_id }}&install_token=${{ inputs.install_token }}"
-      
-    
